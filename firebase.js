@@ -13,10 +13,16 @@ const db = firebase.firestore();
 
 console.log("Firebase iniciado correctamente");
 
+javascript
 // VARIABLES
 
 let currentUser = "";
 let currentRole = "";
+
+// CREDENCIALES FORMADOR
+
+const TRAINER_USER = "instructor";
+const TRAINER_PASSWORD = "ENGIE2026";
 
 // LOGIN
 
@@ -40,10 +46,23 @@ function login(role) {
         return;
     }
 
-    currentUser = name;
-    currentRole = role;
+    // LOGIN ASESOR
 
-    if (role === "advisor") {
+    if(role === "advisor"){
+
+        currentUser = name;
+        currentRole = role;
+
+        db.collection("advisors")
+        .doc(name)
+        .set({
+
+            name:name,
+            role:"advisor",
+            status:"En Cola",
+            login:new Date()
+
+        });
 
         document.getElementById(
         "login-screen"
@@ -53,9 +72,26 @@ function login(role) {
         "advisor-view"
         ).style.display = "block";
 
+        console.log(
+            "Asesor conectado:",
+            name
+        );
+
+        return;
     }
 
-    if (role === "trainer") {
+    // LOGIN FORMADOR
+
+    const password =
+    prompt("Contraseña de Formador");
+
+    if(
+        name === TRAINER_USER &&
+        password === TRAINER_PASSWORD
+    ){
+
+        currentUser = name;
+        currentRole = role;
 
         document.getElementById(
         "login-screen"
@@ -65,20 +101,16 @@ function login(role) {
         "trainer-view"
         ).style.display = "block";
 
+        console.log(
+            "Formador conectado"
+        );
+
+    }else{
+
+        alert(
+            "Credenciales incorrectas"
+        );
+
     }
-
-    console.log(
-        "Usuario conectado:",
-        name,
-        role
-    );
-
-}
-
-// LOGOUT
-
-function logout(){
-
-location.reload();
 
 }
