@@ -1,4 +1,3 @@
-javascript
 const firebaseConfig = {
   apiKey: "AIzaSyAsy_6xBBZ77vqeskM0BT64mnbQ-eHXkss",
   authDomain: "genesyscloud-db5a0.firebaseapp.com",
