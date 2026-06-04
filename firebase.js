@@ -13,7 +13,6 @@ const db = firebase.firestore();
 
 console.log("Firebase iniciado correctamente");
 
-javascript
 // VARIABLES
 
 let currentUser = "";
