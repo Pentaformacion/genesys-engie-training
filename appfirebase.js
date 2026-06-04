@@ -80,6 +80,8 @@ function login(role) {
 
     document.getElementById("login-screen").style.display = "none";
     document.getElementById("trainer-view").style.display = "block";
+    
+    cargarAsesores();
 
     console.log("Formador conectado");
 
