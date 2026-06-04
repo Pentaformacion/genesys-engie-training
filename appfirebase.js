@@ -78,14 +78,17 @@ function login(role) {
     currentUser = name;
     currentRole = role;
 
-    document.getElementById("login-screen").style.display = "none";
-    document.getElementById("trainer-view").style.display = "block";
-    
+  document.getElementById("login-screen").style.display = "none";
+
+document.getElementById("trainer-view").style.display = "block";
+
+console.log("Formador conectado");
+
+setTimeout(function(){
+
     cargarAsesores();
 
-    console.log("Formador conectado");
-
-  } else {
+},500);
 
     alert("Credenciales incorrectas");
 
