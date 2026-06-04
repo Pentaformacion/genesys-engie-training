@@ -143,6 +143,47 @@ function seleccionarAsesor(name){
 
 }
 
+function eliminarAsesor(id){
+
+    const confirmar = confirm(
+        "¿Eliminar asesor?"
+    );
+
+    if(!confirmar) return;
+
+    db.collection("advisors")
+    .doc(id)
+    .delete();
+
+}
+
+function limpiarAsesores(){
+
+    const confirmar = confirm(
+        "¿Eliminar TODOS los asesores?"
+    );
+
+    if(!confirmar) return;
+
+    db.collection("advisors")
+    .get()
+
+    .then(function(snapshot){
+
+        snapshot.forEach(function(doc){
+
+            doc.ref.delete();
+
+        });
+
+        alert(
+            "Lista limpiada"
+        );
+
+    });
+
+}
+
 // Logout
 function logout() {
   location.reload();
