@@ -79,4 +79,3 @@ function logout(){
   location.reload();
 
 }
-```
