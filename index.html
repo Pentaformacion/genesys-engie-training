@@ -6,17 +6,14 @@
 
 <meta charset="UTF-8">
 
-<meta
-name="viewport"
+<meta name="viewport"
 content="width=device-width, initial-scale=1.0">
 
 <title>
-Genesys ENGIE Training
+Genesys Cloud CX - ENGIE Training
 </title>
 
-<link
-rel="stylesheet"
-href="styles.css">
+<link rel="stylesheet" href="styles.css">
 
 </head>
 
@@ -24,36 +21,34 @@ href="styles.css">
 
 <!-- LOGIN -->
 
-<div id="loginScreen">
+<div id="login-screen">
 
-    <div class="loginBox">
+    <div class="login-card">
 
-        <h1>
+        <div class="logo">
             GENESYS CLOUD CX
-        </h1>
+        </div>
 
-        <h3>
+        <div class="subtitle">
             ENGIE TRAINING
-        </h3>
+        </div>
 
         <input
             type="text"
             id="userName"
-            placeholder="Ingresa tu nombre">
-
-        <br><br>
+            placeholder="Nombre del colaborador">
 
         <button
-            onclick="login('advisor')">
+            onclick="login('advisor')"
+            class="btn-advisor">
 
             Entrar como Asesor
 
         </button>
 
-        <br><br>
-
         <button
-            onclick="login('trainer')">
+            onclick="login('trainer')"
+            class="btn-trainer">
 
             Entrar como Formador
 
@@ -63,45 +58,298 @@ href="styles.css">
 
 </div>
 
-<!-- ASESOR -->
+<!-- VISTA ASESOR -->
 
 <div
-id="advisorView"
+id="advisor-view"
 style="display:none;">
 
-    <h1>
-        Vista Asesor
-    </h1>
+<header class="topbar">
 
-    <h2 id="advisorName">
-        Asesor
-    </h2>
+<div class="logo-small">
 
-    <button
-        onclick="logout()">
-
-        Salir
-
-    </button>
+GENESYS
 
 </div>
 
-<!-- FORMADOR -->
+<div class="status-container">
+
+<select id="agent-status">
+
+<option>En Cola</option>
+
+<option>Disponible</option>
+
+<option>Capacitación</option>
+
+<option>Descanso</option>
+
+<option>Offline</option>
+
+</select>
+
+</div>
+
+</header>
+
+<div class="workspace">
+
+<!-- MENU IZQUIERDO -->
+
+<div class="sidebar">
+
+<div class="icon active">
+💬
+</div>
+
+<div class="icon">
+📊
+</div>
+
+<div class="icon">
+📁
+</div>
+
+<div class="icon">
+📞
+</div>
+
+<div class="icon">
+⚙️
+</div>
+
+</div>
+
+<!-- PANEL CENTRAL -->
+
+<div class="conversation-panel">
+
+<div class="conversation-header">
+
+<div>
+
+Facebook Messenger
+
+</div>
+
+<div id="interaction-timer">
+
+00:00
+
+</div>
+
+</div>
+
+<div id="conversation-area">
+
+<div class="queue-screen">
+
+<div class="queue-icon">
+
+💬
+
+</div>
+
+<div class="queue-title">
+
+Está esperando en la cola
+
+</div>
+
+<div class="queue-text">
+
+para manejar las conversaciones
+entrantes asignadas
+
+</div>
+
+</div>
+
+</div>
+
+<div class="message-box">
+
+<button>
+
+📎
+
+</button>
+
+<input
+id="message-input"
+type="text"
+placeholder="Escribe una respuesta">
+
+<button id="send-btn">
+
+Enviar
+
+</button>
+
+</div>
+
+</div>
+```
+```html
+<!-- PERFIL CLIENTE -->
+
+<div class="customer-panel">
+
+<div class="panel-title">
+
+Perfil
+
+</div>
+
+<div class="customer-card">
+
+<label>
+Nombre
+</label>
+
+<div id="customer-name">
+
+Sin interacción
+
+</div>
+
+<hr>
+
+<label>
+Cuenta
+</label>
+
+<div id="customer-account">
+
+-
+
+</div>
+
+<hr>
+
+<label>
+Dirección
+</label>
+
+<div id="customer-address">
+
+-
+
+</div>
+
+<hr>
+
+<label>
+Segmento
+</label>
+
+<div id="customer-segment">
+
+-
+
+</div>
+
+</div>
+
+</div>
+
+<!-- BIBLIOTECA -->
+
+<div class="library-panel">
+
+<div class="panel-title">
+
+Respuestas ENGIE
+
+</div>
+
+<input
+class="search-box"
+placeholder="Buscar...">
+
+<div id="response-library">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- VISTA FORMADOR -->
 
 <div
-id="trainerView"
+id="trainer-view"
 style="display:none;">
 
-    <h1>
-        Vista Formador
-    </h1>
+<header class="trainer-header">
 
-    <button
-        onclick="logout()">
+FORMADOR ENGIE
 
-        Salir
+</header>
 
-    </button>
+<div class="trainer-workspace">
+
+<div class="advisor-list">
+
+<h3>
+
+Asesores
+
+</h3>
+
+<div id="advisor-list">
+
+</div>
+
+</div>
+
+<div class="monitor-panel">
+
+<div class="panel-title">
+
+Monitoreo
+
+</div>
+
+<div id="monitor-container">
+
+</div>
+
+</div>
+
+<div class="case-panel">
+
+<h3>
+
+Generar Caso
+
+</h3>
+
+<button>
+Aclaración Factura
+</button>
+
+<button>
+Cambio Titular
+</button>
+
+<button>
+Factura No Recibida
+</button>
+
+<button>
+Emergencia Gas
+</button>
+
+<button>
+Falta Suministro
+</button>
+
+</div>
+
+</div>
 
 </div>
 
