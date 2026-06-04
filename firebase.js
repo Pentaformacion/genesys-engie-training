@@ -56,6 +56,57 @@ db.collection("system")
   console.error(
     "❌ Error Firebase:",
     error
-  );
 
-});
+function login(role){
+
+const name =
+document.getElementById(
+"userName"
+).value.trim();
+
+if(name===""){
+
+alert("Ingresa tu nombre");
+
+return;
+
+}
+
+currentUser = name;
+
+currentRole = role;
+
+if(role==="advisor"){
+
+document.getElementById(
+"loginScreen"
+).style.display = "none";
+
+document.getElementById(
+"advisorView"
+).style.display = "block";
+
+document.getElementById(
+"advisorName"
+).innerText = name;
+
+}
+
+if(role==="trainer"){
+
+document.getElementById(
+"loginScreen"
+).style.display = "none";
+
+document.getElementById(
+"trainerView"
+).style.display = "block";
+
+}
+
+console.log(
+"Login correcto:",
+role
+);
+
+}
