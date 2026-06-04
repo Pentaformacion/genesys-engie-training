@@ -1,26 +1,524 @@
 ```css
+*{
+margin:0;
+padding:0;
+box-sizing:border-box;
+font-family:'Segoe UI',sans-serif;
+}
+
 body{
-    font-family:Arial,sans-serif;
-    padding:40px;
-    background:#f5f5f5;
+background:#f4f6fa;
+height:100vh;
+overflow:hidden;
 }
 
-.loginBox{
-    background:white;
-    padding:30px;
-    max-width:400px;
-    margin:auto;
-    border-radius:10px;
+/* LOGIN */
+
+#login-screen{
+
+height:100vh;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
 }
 
-input{
-    width:100%;
-    padding:10px;
+.login-card{
+
+width:420px;
+
+background:white;
+
+padding:40px;
+
+border-radius:12px;
+
+box-shadow:0 4px 25px rgba(0,0,0,.08);
+
+display:flex;
+
+flex-direction:column;
+
+gap:15px;
+
 }
 
-button{
-    width:100%;
-    padding:12px;
-    cursor:pointer;
+.logo{
+
+font-size:28px;
+
+font-weight:bold;
+
+color:#ff4f00;
+
+text-align:center;
+
+}
+
+.subtitle{
+
+text-align:center;
+
+color:#666;
+
+margin-bottom:10px;
+
+}
+
+.login-card input{
+
+padding:12px;
+
+border:1px solid #d9d9d9;
+
+border-radius:6px;
+
+}
+
+.btn-advisor{
+
+padding:12px;
+
+background:#0057ff;
+
+color:white;
+
+border:none;
+
+border-radius:6px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+.btn-trainer{
+
+padding:12px;
+
+background:#ff4f00;
+
+color:white;
+
+border:none;
+
+border-radius:6px;
+
+cursor:pointer;
+
+font-weight:bold;
+
+}
+
+/* TOPBAR */
+
+.topbar{
+
+height:55px;
+
+background:white;
+
+border-bottom:1px solid #e5e5e5;
+
+display:flex;
+
+align-items:center;
+
+justify-content:space-between;
+
+padding:0 20px;
+
+}
+
+.logo-small{
+
+font-weight:bold;
+
+font-size:18px;
+
+color:#ff4f00;
+
+}
+
+.status-container select{
+
+padding:8px;
+
+border:1px solid #ddd;
+
+border-radius:6px;
+
+}
+```
+```css
+/* WORKSPACE */
+
+.workspace{
+
+height:calc(100vh - 55px);
+
+display:flex;
+
+}
+
+/* SIDEBAR */
+
+.sidebar{
+
+width:65px;
+
+background:#1f2937;
+
+display:flex;
+
+flex-direction:column;
+
+align-items:center;
+
+padding-top:20px;
+
+}
+
+.icon{
+
+width:42px;
+
+height:42px;
+
+display:flex;
+
+justify-content:center;
+
+align-items:center;
+
+margin-bottom:12px;
+
+border-radius:8px;
+
+cursor:pointer;
+
+color:white;
+
+}
+
+.icon.active{
+
+background:#0057ff;
+
+}
+
+/* CONVERSACION */
+
+.conversation-panel{
+
+flex:1.8;
+
+background:white;
+
+display:flex;
+
+flex-direction:column;
+
+border-right:1px solid #ddd;
+
+}
+
+.conversation-header{
+
+height:55px;
+
+display:flex;
+
+justify-content:space-between;
+
+align-items:center;
+
+padding:0 20px;
+
+border-bottom:1px solid #eee;
+
+font-weight:600;
+
+}
+
+#interaction-timer{
+
+color:#0057ff;
+
+font-weight:bold;
+
+}
+```
+```css
+#conversation-area{
+
+flex:1;
+
+overflow:auto;
+
+padding:20px;
+
+background:#fafafa;
+
+}
+
+.queue-screen{
+
+height:100%;
+
+display:flex;
+
+flex-direction:column;
+
+justify-content:center;
+
+align-items:center;
+
+}
+
+.queue-icon{
+
+font-size:70px;
+
+margin-bottom:20px;
+
+}
+
+.queue-title{
+
+font-size:24px;
+
+font-weight:600;
+
+margin-bottom:10px;
+
+}
+
+.queue-text{
+
+color:#777;
+
+text-align:center;
+
+max-width:350px;
+
+line-height:1.5;
+
+}
+
+.message-box{
+
+height:70px;
+
+display:flex;
+
+align-items:center;
+
+gap:10px;
+
+padding:10px;
+
+border-top:1px solid #eee;
+
+background:white;
+
+}
+
+.message-box input{
+
+flex:1;
+
+padding:12px;
+
+border:1px solid #ddd;
+
+border-radius:6px;
+
+}
+
+.message-box button{
+
+height:45px;
+
+padding:0 15px;
+
+border:none;
+
+background:#0057ff;
+
+color:white;
+
+border-radius:6px;
+
+cursor:pointer;
+
+}
+```
+```css
+/* PERFIL */
+
+.customer-panel{
+
+width:300px;
+
+background:white;
+
+border-right:1px solid #ddd;
+
+}
+
+.panel-title{
+
+padding:15px;
+
+font-weight:bold;
+
+border-bottom:1px solid #eee;
+
+}
+
+.customer-card{
+
+padding:15px;
+
+}
+
+.customer-card label{
+
+font-size:12px;
+
+color:#888;
+
+display:block;
+
+margin-bottom:5px;
+
+}
+
+.customer-card hr{
+
+margin:15px 0;
+
+border:none;
+
+border-top:1px solid #eee;
+
+}
+
+/* BIBLIOTECA */
+
+.library-panel{
+
+width:350px;
+
+background:white;
+
+}
+
+.search-box{
+
+width:calc(100% - 20px);
+
+margin:10px;
+
+padding:10px;
+
+border:1px solid #ddd;
+
+border-radius:6px;
+
+}
+
+#response-library{
+
+height:calc(100% - 100px);
+
+overflow:auto;
+
+}
+```
+```css
+/* FORMADOR */
+
+.trainer-header{
+
+height:55px;
+
+background:#ff4f00;
+
+color:white;
+
+display:flex;
+
+align-items:center;
+
+padding-left:20px;
+
+font-weight:bold;
+
+}
+
+.trainer-workspace{
+
+height:calc(100vh - 55px);
+
+display:flex;
+
+}
+
+.advisor-list{
+
+width:260px;
+
+background:white;
+
+border-right:1px solid #ddd;
+
+padding:15px;
+
+}
+
+.monitor-panel{
+
+flex:1;
+
+background:white;
+
+border-right:1px solid #ddd;
+
+}
+
+.case-panel{
+
+width:320px;
+
+background:#fafafa;
+
+padding:20px;
+
+}
+
+.case-panel button{
+
+width:100%;
+
+padding:12px;
+
+margin-bottom:10px;
+
+background:#0057ff;
+
+border:none;
+
+color:white;
+
+border-radius:6px;
+
+cursor:pointer;
+
 }
 ```
