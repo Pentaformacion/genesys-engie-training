@@ -13,56 +13,72 @@ const db = firebase.firestore();
 
 console.log("Firebase iniciado correctamente");
 
-function login(role){
+// VARIABLES
 
-  const userInput =
-  document.getElementById("userName");
+let currentUser = "";
+let currentRole = "";
 
-  if(!userInput){
-    alert("No existe userName");
-    return;
-  }
+// LOGIN
 
-  const name =
-  userInput.value.trim();
+function login(role) {
 
-  if(name===""){
-    alert("Ingresa tu nombre");
-    return;
-  }
+    const input =
+    document.getElementById("userName");
 
-  if(role==="advisor"){
+    if (!input) {
+        alert("No existe el campo userName");
+        return;
+    }
 
-    document.getElementById(
-      "loginScreen"
-    ).style.display = "none";
+    const name =
+    input.value.trim();
 
-    document.getElementById(
-      "advisorView"
-    ).style.display = "block";
+    if (name === "") {
 
-    document.getElementById(
-      "advisorName"
-    ).innerText = name;
+        alert("Ingresa tu nombre");
 
-  }
+        return;
+    }
 
-  if(role==="trainer"){
+    currentUser = name;
+    currentRole = role;
 
-    document.getElementById(
-      "loginScreen"
-    ).style.display = "none";
+    if (role === "advisor") {
 
-    document.getElementById(
-      "trainerView"
-    ).style.display = "block";
+        document.getElementById(
+        "login-screen"
+        ).style.display = "none";
 
-  }
+        document.getElementById(
+        "advisor-view"
+        ).style.display = "block";
 
-  console.log(
-    "Login correcto:",
-    role,
-    name
-  );
+    }
+
+    if (role === "trainer") {
+
+        document.getElementById(
+        "login-screen"
+        ).style.display = "none";
+
+        document.getElementById(
+        "trainer-view"
+        ).style.display = "block";
+
+    }
+
+    console.log(
+        "Usuario conectado:",
+        name,
+        role
+    );
+
+}
+
+// LOGOUT
+
+function logout(){
+
+location.reload();
 
 }
