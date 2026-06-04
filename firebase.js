@@ -1,112 +1,68 @@
-// ======================================
-// FIREBASE CONFIG
-// ======================================
-
 const firebaseConfig = {
   apiKey: "AIzaSyAsy_6xBBZ77vqeskM0BT64mnbQ-eHXkss",
   authDomain: "genesyscloud-db5a0.firebaseapp.com",
   projectId: "genesyscloud-db5a0",
   storageBucket: "genesyscloud-db5a0.firebasestorage.app",
   messagingSenderId: "451639211739",
-  appId: "1:451639211739:web:7c37433d72ff7d34d5befe",
-  measurementId: "G-Q84BFDS58E"
+  appId: "1:451639211739:web:7c37433d72ff7d34d5befe"
 };
-
-// ======================================
-// INICIALIZAR FIREBASE
-// ======================================
 
 firebase.initializeApp(firebaseConfig);
 
 const db = firebase.firestore();
 
-// ======================================
-// REFERENCIAS DE COLECCIONES
-// ======================================
-
-const advisorsRef = db.collection("advisors");
-
-const interactionsRef = db.collection("interactions");
-
-const messagesRef = db.collection("messages");
-
-const evaluationsRef = db.collection("evaluations");
-
-const reportsRef = db.collection("reports");
-
-// ======================================
-// VALIDAR CONEXIÓN
-// ======================================
-
-db.collection("system")
-.doc("connection")
-.set({
-  status: "online",
-  updated: new Date()
-})
-.then(() => {
-
-  console.log(
-    "✅ Firebase conectado correctamente"
-  );
-
-})
-.catch((error) => {
-
-  console.error(
-    "❌ Error Firebase:",
-    error
+console.log("Firebase iniciado correctamente");
 
 function login(role){
 
-const name =
-document.getElementById(
-"userName"
-).value.trim();
+  const userInput =
+  document.getElementById("userName");
 
-if(name===""){
+  if(!userInput){
+    alert("No existe userName");
+    return;
+  }
 
-alert("Ingresa tu nombre");
+  const name =
+  userInput.value.trim();
 
-return;
+  if(name===""){
+    alert("Ingresa tu nombre");
+    return;
+  }
 
-}
+  if(role==="advisor"){
 
-currentUser = name;
+    document.getElementById(
+      "loginScreen"
+    ).style.display = "none";
 
-currentRole = role;
+    document.getElementById(
+      "advisorView"
+    ).style.display = "block";
 
-if(role==="advisor"){
+    document.getElementById(
+      "advisorName"
+    ).innerText = name;
 
-document.getElementById(
-"loginScreen"
-).style.display = "none";
+  }
 
-document.getElementById(
-"advisorView"
-).style.display = "block";
+  if(role==="trainer"){
 
-document.getElementById(
-"advisorName"
-).innerText = name;
+    document.getElementById(
+      "loginScreen"
+    ).style.display = "none";
 
-}
+    document.getElementById(
+      "trainerView"
+    ).style.display = "block";
 
-if(role==="trainer"){
+  }
 
-document.getElementById(
-"loginScreen"
-).style.display = "none";
-
-document.getElementById(
-"trainerView"
-).style.display = "block";
-
-}
-
-console.log(
-"Login correcto:",
-role
-);
+  console.log(
+    "Login correcto:",
+    role,
+    name
+  );
 
 }
