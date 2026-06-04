@@ -91,6 +91,51 @@ function login(role) {
 
 }
 
+function cargarAsesores(){
+
+    const lista =
+    document.getElementById("advisor-list");
+
+    if(!lista) return;
+
+    db.collection("advisors")
+    .onSnapshot((snapshot)=>{
+
+        lista.innerHTML="";
+
+        snapshot.forEach((doc)=>{
+
+            const data = doc.data();
+
+            lista.innerHTML += `
+            <div class="advisor-card"
+            onclick="seleccionarAsesor('${data.name}')">
+
+                <span>🟢</span>
+                ${data.name}
+
+            </div>
+            `;
+
+        });
+
+    });
+
+}
+
+let advisorSelected = "";
+
+function seleccionarAsesor(name){
+
+    advisorSelected = name;
+
+    console.log(
+        "Asesor seleccionado:",
+        name
+    );
+
+}
+
 // Logout
 function logout() {
   location.reload();
