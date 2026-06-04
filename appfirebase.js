@@ -68,31 +68,30 @@ function login(role) {
   }
 
   // Login Formador
-  const password = prompt("Contraseña de Formador");
+  
+const password = prompt("Contraseña de Formador");
 
-  if (
+if (
     name === TRAINER_USER &&
     password === TRAINER_PASSWORD
-  ) {
+) {
 
     currentUser = name;
     currentRole = role;
 
-  document.getElementById("login-screen").style.display = "none";
+    document.getElementById("login-screen").style.display = "none";
 
-document.getElementById("trainer-view").style.display = "block";
+    document.getElementById("trainer-view").style.display = "block";
 
-console.log("Formador conectado");
-
-setTimeout(function(){
+    console.log("Formador conectado");
 
     cargarAsesores();
 
-},500);
+} else {
 
     alert("Credenciales incorrectas");
 
-  }
+}
 
 }
 
