@@ -1,3 +1,4 @@
+```javascript
 const firebaseConfig = {
   apiKey: "AIzaSyAsy_6xBBZ77vqeskM0BT64mnbQ-eHXkss",
   authDomain: "genesyscloud-db5a0.firebaseapp.com",
@@ -7,75 +8,92 @@ const firebaseConfig = {
   appId: "1:451639211739:web:7c37433d72ff7d34d5befe"
 };
 
+// Inicializar Firebase
 firebase.initializeApp(firebaseConfig);
 
+// Firestore
 const db = firebase.firestore();
 
 console.log("Firebase iniciado correctamente");
 
+// Variables globales
 let currentUser = "";
 let currentRole = "";
 
+// Credenciales del formador
 const TRAINER_USER = "instructor";
 const TRAINER_PASSWORD = "ENGIE2026";
 
-function login(role){
+// Login
+function login(role) {
 
-  const input =
-  document.getElementById("userName");
+  const input = document.getElementById("userName");
 
-  const name =
-  input.value.trim();
+  if (!input) {
+    alert("No existe el campo userName");
+    return;
+  }
 
-  if(name===""){
+  const name = input.value.trim();
+
+  if (name === "") {
     alert("Ingresa tu nombre");
     return;
   }
 
-  if(role==="advisor"){
+  // Login Asesor
+  if (role === "advisor") {
 
     currentUser = name;
     currentRole = role;
 
-    document.getElementById(
-      "login-screen"
-    ).style.display="none";
+    db.collection("advisors")
+      .doc(name)
+      .set({
+        name: name,
+        role: "advisor",
+        status: "En Cola",
+        login: new Date()
+      })
+      .then(() => {
+        console.log("Asesor registrado");
+      })
+      .catch((error) => {
+        console.error("Error Firestore:", error);
+      });
 
-    document.getElementById(
-      "advisor-view"
-    ).style.display="block";
+    document.getElementById("login-screen").style.display = "none";
+    document.getElementById("advisor-view").style.display = "block";
 
     return;
   }
 
-  const password =
-  prompt("Contraseña de Formador");
+  // Login Formador
+  const password = prompt("Contraseña de Formador");
 
-  if(
-    name===TRAINER_USER &&
-    password===TRAINER_PASSWORD
-  ){
+  if (
+    name === TRAINER_USER &&
+    password === TRAINER_PASSWORD
+  ) {
 
-    document.getElementById(
-      "login-screen"
-    ).style.display="none";
+    currentUser = name;
+    currentRole = role;
 
-    document.getElementById(
-      "trainer-view"
-    ).style.display="block";
+    document.getElementById("login-screen").style.display = "none";
+    document.getElementById("trainer-view").style.display = "block";
 
-  }else{
+    console.log("Formador conectado");
 
-    alert(
-      "Credenciales incorrectas"
-    );
+  } else {
+
+    alert("Credenciales incorrectas");
 
   }
 
 }
 
-function logout(){
-
+// Logout
+function logout() {
   location.reload();
-
 }
+```
