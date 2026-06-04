@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html lang="es">
 
@@ -10,13 +11,13 @@ name="viewport"
 content="width=device-width, initial-scale=1.0">
 
 <title>
-Genesys Cloud ENGIE Training
+Genesys ENGIE Training
 </title>
 
 <link
 rel="stylesheet"
 href="styles.css">
-  
+
 </head>
 
 <body>
@@ -25,324 +26,82 @@ href="styles.css">
 
 <div id="loginScreen">
 
-<div class="loginBox">
+    <div class="loginBox">
 
-<div class="logoGenesys">
+        <h1>
+            GENESYS CLOUD CX
+        </h1>
 
-GENESYS CLOUD CX
+        <h3>
+            ENGIE TRAINING
+        </h3>
 
-</div>
+        <input
+            type="text"
+            id="userName"
+            placeholder="Ingresa tu nombre">
 
-<h2>
+        <br><br>
 
-ENGIE TRAINING
+        <button
+            onclick="login('advisor')">
 
-</h2>
+            Entrar como Asesor
 
-<input
-type="text"
-id="userName"
-placeholder="Nombre del asesor">
+        </button>
 
-<div class="roleButtons">
+        <br><br>
 
-<button
-class="btnAdvisor"
-onclick="login('advisor')">
+        <button
+            onclick="login('trainer')">
 
-Entrar como Asesor
+            Entrar como Formador
 
-</button>
+        </button>
 
-<button
-class="btnTrainer"
-onclick="login('trainer')">
-
-Entrar como Formador
-
-</button>
+    </div>
 
 </div>
 
-</div>
-
-</div>
-
-<!-- VISTA ASESOR -->
+<!-- ASESOR -->
 
 <div
 id="advisorView"
 style="display:none;">
 
-<header class="topBar">
+    <h1>
+        Vista Asesor
+    </h1>
 
-<div class="topLeft">
+    <h2 id="advisorName">
+        Asesor
+    </h2>
 
-<div class="genesysLogo">
+    <button
+        onclick="logout()">
 
-GENESYS
+        Salir
 
-</div>
-
-<div id="advisorName">
-
-Asesor
-
-</div>
-
-</div>
-
-<div class="topRight">
-
-<select id="presenceStatus">
-
-<option>
-Disponible
-</option>
-
-<option>
-En Cola
-</option>
-
-<option>
-Capacitación
-</option>
-
-<option>
-Descanso
-</option>
-
-<option>
-Offline
-</option>
-
-</select>
+    </button>
 
 </div>
 
-</header>
-
-<div class="mainWorkspace">
-
-<!-- SIDEBAR -->
-
-<div class="leftMenu">
-
-<div class="menuItem active">
-💬
-</div>
-
-<div class="menuItem">
-📊
-</div>
-
-<div class="menuItem">
-📁
-</div>
-
-<div class="menuItem">
-📞
-</div>
-
-<div class="menuItem">
-⚙️
-</div>
-
-</div>
-
-<!-- CENTRO -->
-
-<div class="conversationPanel">
-
-<div class="conversationHeader">
-
-<div>
-
-Facebook Messenger
-
-</div>
-
-<div>
-
-<span id="interactionTimer">
-
-00:00
-
-</span>
-
-</div>
-
-</div>
-
-<div id="chatContainer">
-
-<div class="queueScreen">
-
-<div class="queueIcon">
-
-💬
-
-</div>
-
-<div class="queueText">
-
-Está esperando en la cola para manejar las conversaciones entrantes asignadas
-
-</div>
-
-</div>
-
-</div>
-
-<div class="messageBox">
-
-<button class="attachBtn">
-
-📎
-
-</button>
-
-<input
-id="messageInput"
-type="text"
-placeholder="Escribe una respuesta">
-
-<button
-onclick="sendMessage()"
-class="sendBtn">
-
-Enviar
-
-</button>
-
-</div>
-
-</div>
-
-<!-- PERFIL CLIENTE -->
-
-<div class="customerPanel">
-
-<div class="panelTitle">
-
-Perfil
-
-</div>
-
-<div class="customerCard">
-
-<div class="customerLabel">
-Nombre
-</div>
-
-<div id="customerName">
-
-Sin interacción
-
-</div>
-
-<hr>
-
-<div class="customerLabel">
-Cuenta
-</div>
-
-<div id="customerAccount">
-
--
-
-</div>
-
-<hr>
-
-<div class="customerLabel">
-Dirección
-</div>
-
-<div id="customerAddress">
-
--
-
-</div>
-
-<hr>
-
-<div class="customerLabel">
-Segmento
-</div>
-
-<div id="customerSegment">
-
--
-
-</div>
-
-</div>
-
-</div>
-
-<!-- RESPUESTAS -->
-
-<div class="knowledgePanel">
-
-<div class="panelTitle">
-
-Respuestas preestablecidas
-
-</div>
-
-<input
-type="text"
-class="searchResponse"
-placeholder="Buscar respuesta">
-
-<div id="responsesContainer">
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- VISTA FORMADOR -->
+<!-- FORMADOR -->
 
 <div
 id="trainerView"
 style="display:none;">
 
-<header class="trainerHeader">
+    <h1>
+        Vista Formador
+    </h1>
 
-FORMADOR ENGIE
+    <button
+        onclick="logout()">
 
-</header>
+        Salir
 
-<div class="trainerWorkspace">
-
-<div class="advisorList">
-
-<h3>
-
-Asesores
-
-</h3>
-
-<div id="advisorContainer">
-
-</div>
-
-</div>
-
-<div class="monitorPanel">
-
-<div class="panelTitle">
-
-Monitoreo
-
-</div>
-
-<div id="monitorChat">
+    </button>
 
 </div>
 
@@ -352,65 +111,7 @@ Monitoreo
 
 <script src="firebase.js"></script>
 
-<script src="casos.js"></script>
-
-<script src="app.js"></script>
-
-</div>
-
-<div class="controlPanel">
-
-<h3>
-
-Casos ENGIE
-
-</h3>
-
-<button
-onclick="launchCase('factura')">
-
-Aclaración Factura
-
-</button>
-
-<button
-onclick="launchCase('titular')">
-
-Cambio Titular
-
-</button>
-
-<button
-onclick="launchCase('gas')">
-
-Emergencia Gas
-
-</button>
-
-<hr>
-
-<h3>
-
-Métricas
-
-</h3>
-
-<div id="metricsContainer">
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<script src="firebase.js"></script>
-
-<script src="casos.js"></script>
-
-<script src="app.js"></script>
-
 </body>
 
 </html>
+```
