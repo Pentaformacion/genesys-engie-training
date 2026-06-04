@@ -105,24 +105,31 @@ function cargarAsesores(){
     db.collection("advisors")
     .onSnapshot((snapshot)=>{
 
-       lista.innerHTML += ` <div class="advisor-card"> 
-       
-       <span 
-       onclick="seleccionarAsesor('${data.name}')"> 
-       
-       🟢 ${data.name}
-       
-       </span> 
-       
-       <button
-       onclick="eliminarAsesor('${doc.id}')"> 
-       
-       ❌ 
-       
-       </button> 
-       
-       </div>
-       `;
+        lista.innerHTML="";
+
+        snapshot.forEach((doc)=>{
+
+            const data = doc.data();
+
+            lista.innerHTML += `
+
+            <div class="advisor-card">
+
+                <span onclick="seleccionarAsesor('${data.name}')">
+
+                    🟢 ${data.name}
+
+                </span>
+
+                <button onclick="eliminarAsesor('${doc.id}')">
+
+                    ❌
+
+                </button>
+
+            </div>
+
+            `;
 
         });
 
