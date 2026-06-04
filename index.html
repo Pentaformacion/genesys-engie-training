@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="es">
+
+<head>
+
+<meta charset="UTF-8">
+
+<meta
+name="viewport"
+content="width=device-width, initial-scale=1.0">
+
+<title>
+Genesys Cloud ENGIE Training
+</title>
+
+<link
+rel="stylesheet"
+href="styles.css">
+
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
+
+</head>
+
+<body>
+
+<!-- LOGIN -->
+
+<div id="loginScreen">
+
+<div class="loginBox">
+
+<div class="logoGenesys">
+
+GENESYS CLOUD CX
+
+</div>
+
+<h2>
+
+ENGIE TRAINING
+
+</h2>
+
+<input
+type="text"
+id="userName"
+placeholder="Nombre del asesor">
+
+<div class="roleButtons">
+
+<button
+class="btnAdvisor"
+onclick="login('advisor')">
+
+Entrar como Asesor
+
+</button>
+
+<button
+class="btnTrainer"
+onclick="login('trainer')">
+
+Entrar como Formador
+
+</button>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- VISTA ASESOR -->
+
+<div
+id="advisorView"
+style="display:none;">
+
+<header class="topBar">
+
+<div class="topLeft">
+
+<div class="genesysLogo">
+
+GENESYS
+
+</div>
+
+<div id="advisorName">
+
+Asesor
+
+</div>
+
+</div>
+
+<div class="topRight">
+
+<select id="presenceStatus">
+
+<option>
+Disponible
+</option>
+
+<option>
+En Cola
+</option>
+
+<option>
+Capacitación
+</option>
+
+<option>
+Descanso
+</option>
+
+<option>
+Offline
+</option>
+
+</select>
+
+</div>
+
+</header>
+
+<div class="mainWorkspace">
+
+<!-- SIDEBAR -->
+
+<div class="leftMenu">
+
+<div class="menuItem active">
+💬
+</div>
+
+<div class="menuItem">
+📊
+</div>
+
+<div class="menuItem">
+📁
+</div>
+
+<div class="menuItem">
+📞
+</div>
+
+<div class="menuItem">
+⚙️
+</div>
+
+</div>
+
+<!-- CENTRO -->
+
+<div class="conversationPanel">
+
+<div class="conversationHeader">
+
+<div>
+
+Facebook Messenger
+
+</div>
+
+<div>
+
+<span id="interactionTimer">
+
+00:00
+
+</span>
+
+</div>
+
+</div>
+
+<div id="chatContainer">
+
+<div class="queueScreen">
+
+<div class="queueIcon">
+
+💬
+
+</div>
+
+<div class="queueText">
+
+Está esperando en la cola para manejar las conversaciones entrantes asignadas
+
+</div>
+
+</div>
+
+</div>
+
+<div class="messageBox">
+
+<button class="attachBtn">
+
+📎
+
+</button>
+
+<input
+id="messageInput"
+type="text"
+placeholder="Escribe una respuesta">
+
+<button
+onclick="sendMessage()"
+class="sendBtn">
+
+Enviar
+
+</button>
+
+</div>
+
+</div>
+
+<!-- PERFIL CLIENTE -->
+
+<div class="customerPanel">
+
+<div class="panelTitle">
+
+Perfil
+
+</div>
+
+<div class="customerCard">
+
+<div class="customerLabel">
+Nombre
+</div>
+
+<div id="customerName">
+
+Sin interacción
+
+</div>
+
+<hr>
+
+<div class="customerLabel">
+Cuenta
+</div>
+
+<div id="customerAccount">
+
+-
+
+</div>
+
+<hr>
+
+<div class="customerLabel">
+Dirección
+</div>
+
+<div id="customerAddress">
+
+-
+
+</div>
+
+<hr>
+
+<div class="customerLabel">
+Segmento
+</div>
+
+<div id="customerSegment">
+
+-
+
+</div>
+
+</div>
+
+</div>
+
+<!-- RESPUESTAS -->
+
+<div class="knowledgePanel">
+
+<div class="panelTitle">
+
+Respuestas preestablecidas
+
+</div>
+
+<input
+type="text"
+class="searchResponse"
+placeholder="Buscar respuesta">
+
+<div id="responsesContainer">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<!-- VISTA FORMADOR -->
+
+<div
+id="trainerView"
+style="display:none;">
+
+<header class="trainerHeader">
+
+FORMADOR ENGIE
+
+</header>
+
+<div class="trainerWorkspace">
+
+<div class="advisorList">
+
+<h3>
+
+Asesores
+
+</h3>
+
+<div id="advisorContainer">
+
+</div>
+
+</div>
+
+<div class="monitorPanel">
+
+<div class="panelTitle">
+
+Monitoreo
+
+</div>
+
+<div id="monitorChat">
+
+</div>
+
+</div>
+
+<div class="controlPanel">
+
+<h3>
+
+Casos ENGIE
+
+</h3>
+
+<button
+onclick="launchCase('factura')">
+
+Aclaración Factura
+
+</button>
+
+<button
+onclick="launchCase('titular')">
+
+Cambio Titular
+
+</button>
+
+<button
+onclick="launchCase('gas')">
+
+Emergencia Gas
+
+</button>
+
+<hr>
+
+<h3>
+
+Métricas
+
+</h3>
+
+<div id="metricsContainer">
+
+</div>
+
+</div>
+
+</div>
+
+</div>
+
+<script src="firebase.js"></script>
+
+<script src="casos.js"></script>
+
+<script src="app.js"></script>
+
+</body>
+
+</html>
