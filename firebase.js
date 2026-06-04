@@ -13,103 +13,70 @@ const db = firebase.firestore();
 
 console.log("Firebase iniciado correctamente");
 
-// VARIABLES
-
 let currentUser = "";
 let currentRole = "";
-
-// CREDENCIALES FORMADOR
 
 const TRAINER_USER = "instructor";
 const TRAINER_PASSWORD = "ENGIE2026";
 
-// LOGIN
+function login(role){
 
-function login(role) {
+  const input =
+  document.getElementById("userName");
 
-    const input =
-    document.getElementById("userName");
+  const name =
+  input.value.trim();
 
-    if (!input) {
-        alert("No existe el campo userName");
-        return;
-    }
+  if(name===""){
+    alert("Ingresa tu nombre");
+    return;
+  }
 
-    const name =
-    input.value.trim();
+  if(role==="advisor"){
 
-    if (name === "") {
+    currentUser = name;
+    currentRole = role;
 
-        alert("Ingresa tu nombre");
+    document.getElementById(
+      "login-screen"
+    ).style.display="none";
 
-        return;
-    }
+    document.getElementById(
+      "advisor-view"
+    ).style.display="block";
 
-    // LOGIN ASESOR
+    return;
+  }
 
-    if(role === "advisor"){
+  const password =
+  prompt("Contraseña de Formador");
 
-        currentUser = name;
-        currentRole = role;
+  if(
+    name===TRAINER_USER &&
+    password===TRAINER_PASSWORD
+  ){
 
-        db.collection("advisors")
-        .doc(name)
-        .set({
+    document.getElementById(
+      "login-screen"
+    ).style.display="none";
 
-            name:name,
-            role:"advisor",
-            status:"En Cola",
-            login:new Date()
+    document.getElementById(
+      "trainer-view"
+    ).style.display="block";
 
-        });
+  }else{
 
-        document.getElementById(
-        "login-screen"
-        ).style.display = "none";
+    alert(
+      "Credenciales incorrectas"
+    );
 
-        document.getElementById(
-        "advisor-view"
-        ).style.display = "block";
-
-        console.log(
-            "Asesor conectado:",
-            name
-        );
-
-        return;
-    }
-
-    // LOGIN FORMADOR
-
-    const password =
-    prompt("Contraseña de Formador");
-
-    if(
-        name === TRAINER_USER &&
-        password === TRAINER_PASSWORD
-    ){
-
-        currentUser = name;
-        currentRole = role;
-
-        document.getElementById(
-        "login-screen"
-        ).style.display = "none";
-
-        document.getElementById(
-        "trainer-view"
-        ).style.display = "block";
-
-        console.log(
-            "Formador conectado"
-        );
-
-    }else{
-
-        alert(
-            "Credenciales incorrectas"
-        );
-
-    }
+  }
 
 }
+
+function logout(){
+
+  location.reload();
+
+}
+```
