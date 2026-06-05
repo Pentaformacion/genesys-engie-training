@@ -11,7 +11,7 @@ const firebaseConfig = {
 firebase.initializeApp(firebaseConfig);
 
 // Firestore
-const db = firebase.firestore();
+const db = firebase.firestore();f
 
 console.log("Firebase iniciado correctamente");
 
@@ -282,11 +282,6 @@ function mostrarCaso(caso,id){
     ).innerText =
     caso.cuenta;
 
-  db.collection("cases")
-.doc(id)
-.update({
-    estado:"asignado"
-});
 
 }
 
