@@ -64,6 +64,8 @@ function login(role) {
     document.getElementById("login-screen").style.display = "none";
     document.getElementById("advisor-view").style.display = "block";
 
+    escucharCasos();
+
     return;
   }
 
@@ -222,6 +224,47 @@ function escucharCasos(){
         });
 
     });
+
+}
+
+function mostrarCaso(caso,id){
+
+    const panel =
+    document.getElementById(
+    "conversation-area"
+    );
+
+    if(!panel) return;
+
+    panel.innerHTML = `
+
+    <div class="cliente-card">
+
+        <h3>
+
+        ${caso.cliente}
+
+        </h3>
+
+        <p>
+
+        ${caso.mensaje}
+
+        </p>
+
+    </div>
+
+    `;
+
+    document.getElementById(
+    "customer-name"
+    ).innerText =
+    caso.cliente;
+
+    document.getElementById(
+    "customer-account"
+    ).innerText =
+    caso.cuenta;
 
 }
 
