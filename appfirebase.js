@@ -282,7 +282,56 @@ function mostrarCaso(caso,id){
     ).innerText =
     caso.cuenta;
 
-}
+  db.collection("cases") .doc(id) .update({ estado:"asignado" });
+
+document.addEventListener("click",function(e){
+
+    if(e.target.id==="send-btn"){
+
+        const input =
+        document.getElementById(
+        "message-input"
+        );
+
+        const texto =
+        input.value.trim();
+
+        if(texto==="") return;
+
+        const area =
+        document.getElementById(
+        "conversation-area"
+        );
+
+        area.innerHTML += `
+
+        <div style="
+        text-align:right;
+        margin-top:15px;
+        ">
+
+            <div style="
+            display:inline-block;
+            background:#0057ff;
+            color:white;
+            padding:10px;
+            border-radius:10px;
+            ">
+
+            ${texto}
+
+            </div>
+
+        </div>
+
+        `;
+
+        input.value="";
+
+    }
+
+});
+
 
 // Logout
 function logout() {
