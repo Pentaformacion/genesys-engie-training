@@ -31,12 +31,27 @@ function generarCaso(tipo){
     db.collection("cases")
     .add(caso)
 
-    .then(()=>{
+.then(()=>{
 
-        alert(
-            "Caso enviado"
-        );
+    document.getElementById(
+    "monitor-container"
+    ).innerHTML = `
 
-    });
+    <div style="padding:20px;">
+
+        <h2>
+        ${advisorSelected}
+        </h2>
+
+        <p>
+        Caso enviado:
+        ${tipo}
+        </p>
+
+    </div>
+
+    `;
+
+});
 
 }
