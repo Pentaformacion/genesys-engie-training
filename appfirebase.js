@@ -282,6 +282,14 @@ function mostrarCaso(caso,id){
     ).innerText =
     caso.cuenta;
 
+  db.collection("cases")
+.doc(id)
+.update({
+    estado:"asignado"
+});
+
+}
+
   db.collection("cases") .doc(id) .update({ estado:"asignado" });
 
 document.addEventListener("click",function(e){
