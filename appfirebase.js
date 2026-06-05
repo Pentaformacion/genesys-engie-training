@@ -150,6 +150,22 @@ function seleccionarAsesor(name){
         name
     );
 
+    document.getElementById(
+    "monitor-container"
+    ).innerHTML = `
+
+    <div style="padding:20px;">
+
+        <h2>${name}</h2>
+
+        <p>
+        Asesor seleccionado
+        </p>
+
+    </div>
+
+    `;
+
 }
 
 function eliminarAsesor(id){
