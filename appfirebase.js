@@ -332,6 +332,7 @@ document.addEventListener("click",function(e){
 
 });
 
+}
 
 // Logout
 function logout() {
