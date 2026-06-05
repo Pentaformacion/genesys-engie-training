@@ -153,8 +153,7 @@ border:1px solid #ddd;
 border-radius:6px;
 
 }
-```
-```css
+
 /* WORKSPACE */
 
 .workspace{
@@ -252,8 +251,7 @@ color:#0057ff;
 font-weight:bold;
 
 }
-```
-```css
+
 #conversation-area{
 
 flex:1;
@@ -357,8 +355,7 @@ border-radius:6px;
 cursor:pointer;
 
 }
-```
-```css
+
 /* PERFIL */
 
 .customer-panel{
@@ -440,8 +437,7 @@ height:calc(100% - 100px);
 overflow:auto;
 
 }
-```
-```css
+
 /* FORMADOR */
 
 .trainer-header{
