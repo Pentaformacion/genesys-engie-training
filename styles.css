@@ -520,6 +520,8 @@ border-radius:6px;
 
 cursor:pointer;
 
+}
+
 .advisor-card{
 
 display:flex;
@@ -528,13 +530,15 @@ justify-content:space-between;
 
 align-items:center;
 
-padding:8px;
+padding:10px;
 
-margin-bottom:5px;
+margin-bottom:8px;
 
 background:white;
 
-border-radius:6px;
+border:1px solid #e5e7eb;
+
+border-radius:8px;
 
 cursor:pointer;
 
@@ -549,8 +553,5 @@ border:none;
 cursor:pointer;
 
 font-size:16px;
-
-}
-
 
 }
