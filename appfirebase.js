@@ -191,6 +191,40 @@ function limpiarAsesores(){
 
 }
 
+function escucharCasos(){
+
+    db.collection("cases")
+
+    .where(
+        "asesor",
+        "==",
+        currentUser
+    )
+
+    .where(
+        "estado",
+        "==",
+        "nuevo"
+    )
+
+    .onSnapshot((snapshot)=>{
+
+        snapshot.forEach((doc)=>{
+
+            const caso =
+            doc.data();
+
+            mostrarCaso(
+                caso,
+                doc.id
+            );
+
+        });
+
+    });
+
+}
+
 // Logout
 function logout() {
   location.reload();
