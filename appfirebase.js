@@ -285,8 +285,6 @@ function mostrarCaso(caso,id){
 
 }
 
-  db.collection("cases") .doc(id) .update({ estado:"asignado" });
-
 document.addEventListener("click",function(e){
 
     if(e.target.id==="send-btn"){
