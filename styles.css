@@ -116,23 +116,7 @@ font-weight:bold;
 
 /* TOPBAR */
 
-.topbar{
-
-height:55px;
-
-background:white;
-
-border-bottom:1px solid #e5e5e5;
-
-display:flex;
-
-align-items:center;
-
-justify-content:space-between;
-
-padding:0 20px;
-
-}
+.topbar{ height:60px; background:white; border-bottom:1px solid #dfe3ea; display:flex; align-items:center; justify-content:space-between; padding:0 20px; box-shadow:0 1px 3px rgba(0,0,0,.05); }
 
 .logo-small{
 
@@ -163,26 +147,9 @@ display:flex;
 
 /* SIDEBAR */
 
-.sidebar{
-width:60px;
-background:#1f2937;
-display:flex;
-flex-direction:column;
-align-items:center;
-padding-top:15px;
-}
+.sidebar{ width:72px; background:#f5f6fa; border-right:1px solid #dfe3ea; display:flex; flex-direction:column; align-items:center; padding-top:12px; }
 
-.icon{
-width:42px;
-height:42px;
-display:flex;
-justify-content:center;
-align-items:center;
-margin-bottom:10px;
-border-radius:8px;
-cursor:pointer;
-color:white;
-}
+.icon{ width:46px; height:46px; display:flex; justify-content:center; align-items:center; margin-bottom:8px; border-radius:10px; cursor:pointer; color:#5f6b7a; font-size:18px; } .icon.active{ background:#e7f0ff; color:#0057ff; }
 
 .icon.active{
 background:#0057ff;
@@ -251,11 +218,7 @@ cursor:pointer;
 
 /* PERFIL */
 
-.customer-panel{
-width:320px;
-background:white;
-border-right:1px solid #ddd;
-}
+.customer-panel{ width:320px; background:#fafbfc; border-left:1px solid #e5e7eb; }
 
 .panel-title{
 padding:15px;
@@ -270,10 +233,7 @@ line-height:1.8;
 
 /* BIBLIOTECA */
 
-.library-panel{
-width:280px;
-background:white;
-}
+.library-panel{ width:320px; background:#ffffff; border-left:1px solid #e5e7eb; }
 
 .search-box{
 width:90%;
@@ -347,3 +307,5 @@ border:none;
 cursor:pointer;
 font-size:16px;
 }
+
+.queue-screen{ height:100%; display:flex; flex-direction:column; justify-content:center; align-items:center; } .queue-icon{ font-size:70px; opacity:.4; margin-bottom:20px; } .queue-title{ font-size:26px; font-weight:600; color:#2f3947; margin-bottom:12px; } .queue-text{ font-size:14px; color:#6b7280; text-align:center; max-width:380px; line-height:1.6; }
