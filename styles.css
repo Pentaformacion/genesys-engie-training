@@ -147,13 +147,19 @@ display:flex;
 
 /* SIDEBAR */
 
-.sidebar{ width:72px; background:#f5f6fa; border-right:1px solid #dfe3ea; display:flex; flex-direction:column; align-items:center; padding-top:12px; }
+.sidebar{width:230px;background:#ffffff;border-right:1px solid #e5e7eb;display;flex-direction;}
 
-.icon{ width:46px; height:46px; display:flex; justify-content:center; align-items:center; margin-bottom:8px; border-radius:10px; cursor:pointer; color:#5f6b7a; font-size:18px; } .icon.active{ background:#e7f0ff; color:#0057ff; }
+.conversations-header{padding:15px;display;justify-content;align-items;border-bottom:1px solid #eef2f7;}
 
-.icon.active{
-background:#0057ff;
-}
+.conversation-actions{display;gap:5px;}
+
+.conversation-actions button{width:32px;height:32px;border;background:#f3f4f6;border-radius:6px;cursor;}
+
+.queue-area{flex:1;display;flex-direction;justify-content;align-items;text-align;padding:20px;color:#6b7280;}
+
+.queue-btn{margin:15px 0;padding:8px 16px;border;border-radius:6px;background:#eef2ff;color:#4338ca;cursor;font-weight:600;}
+
+.queue-counter{font-size:20px;font-weight;margin:10px 0;}
 
 /* PANEL CHAT */
 
