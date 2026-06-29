@@ -5,356 +5,392 @@
 
 <meta charset="UTF-8">
 
-<meta name="viewport"
-content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-<title>
-Genesys Cloud CX - ENGIE Training
-</title>
+<title>ENGIE Training Simulator</title>
 
 <link rel="stylesheet" href="styles.css">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet"
+href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
 
 </head>
 
 <body>
 
-<!-- LOGIN -->
+<div id="app">
 
-<div id="login-screen">
+    <!-- LOGIN -->
 
-    <div class="login-card">
+    <section id="login-screen">
 
-        <div class="logo">
-            GENESYS CLOUD CX
+        <div class="login-card">
+
+            <h1>Training CX</h1>
+
+            <p>ENGIE</p>
+
+            <input
+                id="userName"
+                type="text"
+                placeholder="Nombre del colaborador">
+
+            <button
+                onclick="login('advisor')"
+                class="btn-primary">
+
+                Entrar como Asesor
+
+            </button>
+
+            <button
+                onclick="login('trainer')"
+                class="btn-secondary">
+
+                Entrar como Formador
+
+            </button>
+
         </div>
 
-        <div class="subtitle">
-            ENGIE TRAINING
+    </section>
+
+    <!-- DASHBOARD -->
+
+    <section
+        id="advisor-view"
+        style="display:none;">
+
+        <header class="topbar">
+
+            <div class="left-area">
+
+                <button class="menu-btn">
+
+                    <i class="fa-solid fa-bars"></i>
+
+                </button>
+
+                <div class="logo">
+
+                    Training CX
+
+                </div>
+
+                <div class="search">
+
+                    <i class="fa-solid fa-magnifying-glass"></i>
+
+                    <input
+                        placeholder="Buscar páginas, usuarios, grupos y ubicaciones">
+
+                </div>
+
+            </div>
+
+            <div class="right-area">
+
+                <button><i class="fa-solid fa-phone"></i></button>
+
+                <button><i class="fa-regular fa-comments"></i></button>
+
+                <button><i class="fa-solid fa-inbox"></i></button>
+
+                <button><i class="fa-solid fa-users"></i></button>
+
+                <select id="status">
+
+                    <option>Fuera de la cola</option>
+
+                    <option>Disponible</option>
+
+                    <option>Ocupado</option>
+
+                    <option>Ausente</option>
+
+                    <option>Descanso</option>
+
+                    <option>Comida</option>
+
+                    <option>Capacitación</option>
+
+                </select>
+
+                <div class="avatar">
+
+                    JV
+
+                </div>
+
+            </div>
+
+        </header>
+
+<main class="workspace">
+
+    <!-- BARRA LATERAL -->
+
+    <aside class="sidebar">
+
+        <button class="side-btn active">
+            <i class="fa-regular fa-comments"></i>
+        </button>
+
+        <button class="side-btn">
+            <i class="fa-solid fa-phone"></i>
+        </button>
+
+        <button class="side-btn">
+            <i class="fa-solid fa-inbox"></i>
+        </button>
+
+        <button class="side-btn">
+            <i class="fa-solid fa-book"></i>
+        </button>
+
+        <button class="side-btn">
+            <i class="fa-solid fa-gear"></i>
+        </button>
+
+    </aside>
+
+    <!-- CONVERSACIONES -->
+
+    <section class="conversation-list">
+
+        <div class="panel-header">
+
+            <h3>Conversaciones</h3>
+
+            <button>
+
+                <i class="fa-solid fa-ellipsis"></i>
+
+            </button>
+
+        </div>
+
+        <div class="conversation-search">
+
+            <input
+                placeholder="Buscar conversación">
+
+        </div>
+
+        <div class="empty-conversations">
+
+            <i class="fa-regular fa-comments"></i>
+
+            <h4>No hay conversaciones</h4>
+
+            <p>
+
+                Esperando una nueva interacción...
+
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- CHAT -->
+
+    <section class="chat-panel">
+
+        <div class="chat-header">
+
+            <div class="customer">
+
+                <div class="customer-avatar">
+
+                    FB
+
+                </div>
+
+                <div>
+
+                    <strong>
+
+                        Facebook Messenger
+
+                    </strong>
+
+                    <small>
+
+                        Sin interacción
+
+                    </small>
+
+                </div>
+
+            </div>
+
+            <div class="chat-tools">
+
+                <button>
+
+                    <i class="fa-solid fa-phone"></i>
+
+                </button>
+
+                <button>
+
+                    <i class="fa-solid fa-video"></i>
+
+                </button>
+
+                <button>
+
+                    <i class="fa-solid fa-ellipsis"></i>
+
+                </button>
+
+            </div>
+
+        </div>
+
+        <div id="messages">
+
+            <div class="welcome-screen">
+
+                <i class="fa-regular fa-comments"></i>
+
+                <h2>
+
+                    No hay conversaciones activas
+
+                </h2>
+
+                <p>
+
+                    Las conversaciones asignadas aparecerán aquí.
+
+                </p>
+
+            </div>
+
+        </div>
+
+        <div class="message-box">
+
+            <button class="attach-btn">
+
+                <i class="fa-solid fa-paperclip"></i>
+
+            </button>
+
+            <input
+                id="message-input"
+                type="text"
+                placeholder="Escribe un mensaje...">
+
+            <button
+                id="send-btn">
+
+                <i class="fa-solid fa-paper-plane"></i>
+
+            </button>
+
+        </div>
+
+    </section>
+
+    <!-- PERFIL -->
+
+    <aside class="profile-panel">
+
+        <div class="panel-header">
+
+            <h3>Perfil</h3>
+
+        </div>
+
+        <div class="profile-content">
+
+            <div class="profile-avatar">
+
+                <i class="fa-solid fa-user"></i>
+
+            </div>
+
+            <div class="profile-field">
+
+                <label>Nombre</label>
+
+                <span id="customer-name">
+
+                    Sin interacción
+
+                </span>
+
+            </div>
+
+            <div class="profile-field">
+
+                <label>Cuenta</label>
+
+                <span id="customer-account">-</span>
+
+            </div>
+
+            <div class="profile-field">
+
+                <label>Dirección</label>
+
+                <span id="customer-address">-</span>
+
+            </div>
+
+            <div class="profile-field">
+
+                <label>Segmento</label>
+
+                <span id="customer-segment">-</span>
+
+            </div>
+
+        </div>
+
+    </aside>
+
+    <!-- BIBLIOTECA -->
+
+    <aside class="knowledge-panel">
+
+        <div class="panel-header">
+
+            <h3>Biblioteca</h3>
+
         </div>
 
         <input
-            type="text"
-            id="userName"
-            placeholder="Nombre del colaborador">
+            class="knowledge-search"
+            placeholder="Buscar respuesta...">
 
-        <button
-            onclick="login('advisor')"
-            class="btn-advisor">
+        <div id="knowledge-list">
 
-            Entrar como Asesor
+        </div>
 
-        </button>
+    </aside>
 
-        <button
-            onclick="login('trainer')"
-            class="btn-trainer">
+</main>
 
-            Entrar como Formador
+</section>
 
-        </button>
+<script src="firebase.js"></script>
 
-    </div>
+<script src="app.js"></script>
 
-</div>
+<script src="trainer.js"></script>
 
-<!-- VISTA ASESOR -->
-
-<div
-id="advisor-view"
-style="display:none;">
-
-<header class="topbar">
-
-<div class="logo-small">
-
-GENESYS
-
-</div>
-
-<div class="status-container">
-
-<select id="agent-status">
-
-<option>En Cola</option>
-
-<option>Disponible</option>
-
-<option>Capacitación</option>
-
-<option>Descanso</option>
-
-<option>Offline</option>
-
-</select>
-
-</div>
-
-</header>
-
-<div class="workspace">
-
-<!-- MENU IZQUIERDO -->
-
-<div class="sidebar">
-
-<div class="icon active">
-💬
-</div>
-
-<div class="icon">
-📊
-</div>
-
-<div class="icon">
-📁
-</div>
-
-<div class="icon">
-📞
-</div>
-
-<div class="icon">
-⚙️
-</div>
-
-<div>
-
-Facebook Messenger
-
-</div>
-
-<div id="interaction-timer">
-
-00:00
-
-</div>
-
-</div>
-
-<div id="conversation-area">
-
-<div class="queue-screen">
-
-<div class="queue-icon">
-
-💬
-
-</div>
-
-<div class="queue-title">
-
-No hay conversaciones activas
-
-</div>
-
-<div class="queue-text">
-
-Inicie nuevas conversaciones o
-espere una interacción asignada.
-
-</div>
-
-</div>
-
-</div>
-
-<div class="message-box" id="message-box" style="display:none;">
-
-<button>
-
-📎
-
-</button>
-
-<input
-id="message-input"
-type="text"
-placeholder="Escribe una respuesta">
-
-<button id="send-btn" onclick="enviarMensaje()">
-Enviar
-</button>
-
-</div>
-
-</div>
-
-
-<!-- PERFIL CLIENTE -->
-
-<div class="customer-panel" style="display:none;">
-
-<div class="panel-title">
-
-Perfil
-
-</div>
-
-<div class="customer-card">
-
-<label>
-Nombre
-</label>
-
-<div id="customer-name">
-
-Sin interacción
-
-</div>
-
-<hr>
-
-<label>
-Cuenta
-</label>
-
-<div id="customer-account">
-
--
-
-</div>
-
-<hr>
-
-<label>
-Dirección
-</label>
-
-<div id="customer-address">
-
--
-
-</div>
-
-<hr>
-
-<label>
-Segmento
-</label>
-
-<div id="customer-segment">
-
--
-
-</div>
-
-</div>
-
-</div>
-
-<!-- BIBLIOTECA -->
-
-<div class="library-panel" style="display:none;">
-
-<div class="panel-title">
-
-Respuestas ENGIE
-
-</div>
-
-<input
-class="search-box"
-placeholder="Buscar...">
-
-<div id="response-library">
-
-</div>
-
-</div>
-
-</div>
-
-</div>
-
-<!-- VISTA FORMADOR -->
-
-<div
-id="trainer-view"
-style="display:none;">
-
-<header class="trainer-header">
-
-FORMADOR ENGIE
-
-</header>
-
-<div class="trainer-workspace">
-
-<div class="advisor-list">
-
-<h3>
-
-Asesores
-
-</h3>
-
-<button onclick="limpiarAsesores()"> 🗑 Limpiar Todo </button>
-
-<div id="advisor-list">
-
-</div>
-
-</div>
-
-<div class="monitor-panel">
-
-<div class="panel-title">
-
-Monitoreo
-
-</div>
-
-<div id="monitor-container">
-
-</div>
-
-</div>
-
-<div class="case-panel">
-
-<h3>
-
-Generar Caso
-
-</h3>
-
-<button
-onclick="generarCaso('Aclaración Factura')">
-
-Aclaración Factura
-
-</button>
-
-<button>
-Cambio Titular
-</button>
-
-<button>
-Factura No Recibida
-</button>
-
-<button>
-Emergencia Gas
-</button>
-
-<button>
-Falta Suministro
-</button>
-
-</div>
-
-</div>
-
-</div>
-
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-app-compat.js"></script>
-
-<script src="https://www.gstatic.com/firebasejs/10.11.0/firebase-firestore-compat.js"></script>
-
-<script src="appfirebase.js"></script>
-
-<script src="casos.js"></script>
+<script src="cases.js"></script>
 
 </body>
 
-</html> 
+</html>
