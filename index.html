@@ -24,34 +24,46 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
 <body>
 
-<div id="app">
+<div id="login-screen">
 
-    <!-- LOGIN -->
+    <div class="login-card">
 
-    <section id="login-screen">
+        <div class="login-logo">
 
-        <div class="login-card">
+            ENGIE
 
-            <h1>Training CX</h1>
+        </div>
 
-            <p>ENGIE</p>
+        <h1>
 
-            <input
-                id="userName"
-                type="text"
-                placeholder="Nombre del colaborador">
+            Training Simulator
+
+        </h1>
+
+        <p>
+
+            Genesys Cloud CX
+
+        </p>
+
+        <input
+        id="userName"
+        type="text"
+        placeholder="Nombre del colaborador">
+
+        <div class="login-buttons">
 
             <button
-                onclick="login('advisor')"
-                class="btn-primary">
+            class="btn-primary"
+            onclick="login('advisor')">
 
                 Entrar como Asesor
 
             </button>
 
             <button
-                onclick="login('trainer')"
-                class="btn-secondary">
+            class="btn-secondary"
+            onclick="login('trainer')">
 
                 Entrar como Formador
 
@@ -59,135 +71,173 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- DASHBOARD -->
+</div>
 
-    <section
-        id="advisor-view"
-        style="display:none;">
+<div
+id="advisor-view"
+style="display:none;">
 
-        <header class="topbar">
+<header class="gcx-header">
 
-            <div class="left-area">
+<div class="header-left">
 
-                <button class="menu-btn">
+<button class="menu-btn">
 
-                    <i class="fa-solid fa-bars"></i>
+<i class="fa-solid fa-bars"></i>
 
-                </button>
+</button>
 
-                <div class="logo">
+<div class="gcx-brand">
 
-                    Training CX
+Training CX
 
-                </div>
+</div>
 
-                <div class="search">
+<div class="search-container">
 
-                    <i class="fa-solid fa-magnifying-glass"></i>
+<i class="fa-solid fa-magnifying-glass"></i>
 
-                    <input
-                        placeholder="Buscar páginas, usuarios, grupos y ubicaciones">
+<input
+type="text"
+placeholder="Buscar páginas, usuarios, grupos y ubicaciones">
 
-                </div>
+</div>
 
-            </div>
+</div>
 
-            <div class="right-area">
+<div class="header-right">
 
-                <button><i class="fa-solid fa-phone"></i></button>
+<button class="toolbar-btn">
 
-                <button><i class="fa-regular fa-comments"></i></button>
+<i class="fa-solid fa-phone"></i>
 
-                <button><i class="fa-solid fa-inbox"></i></button>
+</button>
 
-                <button><i class="fa-solid fa-users"></i></button>
+<button class="toolbar-btn active">
 
-                <select id="status">
+<i class="fa-regular fa-comments"></i>
 
-                    <option>Fuera de la cola</option>
+</button>
 
-                    <option>Disponible</option>
+<button class="toolbar-btn">
 
-                    <option>Ocupado</option>
+<i class="fa-solid fa-inbox"></i>
 
-                    <option>Ausente</option>
+</button>
 
-                    <option>Descanso</option>
+<button class="toolbar-btn">
 
-                    <option>Comida</option>
+<i class="fa-solid fa-users"></i>
 
-                    <option>Capacitación</option>
+</button>
 
-                </select>
+<select id="agent-status">
 
-                <div class="avatar">
+<option>Fuera de la cola</option>
 
-                    JV
+<option>Disponible</option>
 
-                </div>
+<option>Ocupado</option>
 
-            </div>
+<option>Ausente</option>
 
-        </header>
+<option>Descanso</option>
 
-<main class="workspace">
+<option>Comida</option>
 
-    <!-- BARRA LATERAL -->
+<option>Capacitación</option>
 
-    <aside class="sidebar">
+</select>
 
-        <button class="side-btn active">
+<div class="avatar">
+
+JV
+
+</div>
+
+</div>
+
+</header>
+
+<main class="layout">
+
+<!-- ========================= -->
+<!-- BARRA LATERAL -->
+<!-- ========================= -->
+
+<aside class="sidebar">
+
+    <button class="side-icon active">
+        <i class="fa-regular fa-comments"></i>
+    </button>
+
+    <button class="side-icon">
+        <i class="fa-solid fa-phone"></i>
+    </button>
+
+    <button class="side-icon">
+        <i class="fa-solid fa-inbox"></i>
+    </button>
+
+    <button class="side-icon">
+        <i class="fa-solid fa-book"></i>
+    </button>
+
+    <button class="side-icon">
+        <i class="fa-solid fa-chart-simple"></i>
+    </button>
+
+    <button class="side-icon">
+        <i class="fa-solid fa-gear"></i>
+    </button>
+
+</aside>
+
+<!-- ========================= -->
+<!-- CONVERSACIONES -->
+<!-- ========================= -->
+
+<section class="conversation-panel">
+
+    <div class="panel-top">
+
+        <h2>
+
+            Conversaciones
+
+        </h2>
+
+        <button>
+
+            <i class="fa-solid fa-plus"></i>
+
+        </button>
+
+    </div>
+
+    <div class="conversation-search">
+
+        <i class="fa-solid fa-magnifying-glass"></i>
+
+        <input
+        type="text"
+        placeholder="Buscar conversación">
+
+    </div>
+
+    <div class="conversation-list">
+
+        <div class="empty-state">
+
             <i class="fa-regular fa-comments"></i>
-        </button>
 
-        <button class="side-btn">
-            <i class="fa-solid fa-phone"></i>
-        </button>
+            <h3>
 
-        <button class="side-btn">
-            <i class="fa-solid fa-inbox"></i>
-        </button>
+                No hay conversaciones
 
-        <button class="side-btn">
-            <i class="fa-solid fa-book"></i>
-        </button>
-
-        <button class="side-btn">
-            <i class="fa-solid fa-gear"></i>
-        </button>
-
-    </aside>
-
-    <!-- CONVERSACIONES -->
-
-    <section class="conversation-list">
-
-        <div class="panel-header">
-
-            <h3>Conversaciones</h3>
-
-            <button>
-
-                <i class="fa-solid fa-ellipsis"></i>
-
-            </button>
-
-        </div>
-
-        <div class="conversation-search">
-
-            <input
-                placeholder="Buscar conversación">
-
-        </div>
-
-        <div class="empty-conversations">
-
-            <i class="fa-regular fa-comments"></i>
-
-            <h4>No hay conversaciones</h4>
+            </h3>
 
             <p>
 
@@ -197,191 +247,237 @@ href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
 
         </div>
 
-    </section>
+    </div>
 
-    <!-- CHAT -->
+</section>
 
-    <section class="chat-panel">
+<!-- ========================= -->
+<!-- CHAT -->
+<!-- ========================= -->
 
-        <div class="chat-header">
+<section class="chat-panel">
 
-            <div class="customer">
+    <header class="chat-header">
 
-                <div class="customer-avatar">
+        <div class="customer-info">
 
-                    FB
+            <div class="customer-avatar">
 
-                </div>
-
-                <div>
-
-                    <strong>
-
-                        Facebook Messenger
-
-                    </strong>
-
-                    <small>
-
-                        Sin interacción
-
-                    </small>
-
-                </div>
+                FB
 
             </div>
 
-            <div class="chat-tools">
+            <div>
 
-                <button>
+                <strong>
 
-                    <i class="fa-solid fa-phone"></i>
+                    Facebook Messenger
 
-                </button>
+                </strong>
 
-                <button>
-
-                    <i class="fa-solid fa-video"></i>
-
-                </button>
-
-                <button>
-
-                    <i class="fa-solid fa-ellipsis"></i>
-
-                </button>
-
-            </div>
-
-        </div>
-
-        <div id="messages">
-
-            <div class="welcome-screen">
-
-                <i class="fa-regular fa-comments"></i>
-
-                <h2>
-
-                    No hay conversaciones activas
-
-                </h2>
-
-                <p>
-
-                    Las conversaciones asignadas aparecerán aquí.
-
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="message-box">
-
-            <button class="attach-btn">
-
-                <i class="fa-solid fa-paperclip"></i>
-
-            </button>
-
-            <input
-                id="message-input"
-                type="text"
-                placeholder="Escribe un mensaje...">
-
-            <button
-                id="send-btn">
-
-                <i class="fa-solid fa-paper-plane"></i>
-
-            </button>
-
-        </div>
-
-    </section>
-
-    <!-- PERFIL -->
-
-    <aside class="profile-panel">
-
-        <div class="panel-header">
-
-            <h3>Perfil</h3>
-
-        </div>
-
-        <div class="profile-content">
-
-            <div class="profile-avatar">
-
-                <i class="fa-solid fa-user"></i>
-
-            </div>
-
-            <div class="profile-field">
-
-                <label>Nombre</label>
-
-                <span id="customer-name">
+                <small>
 
                     Sin interacción
 
-                </span>
-
-            </div>
-
-            <div class="profile-field">
-
-                <label>Cuenta</label>
-
-                <span id="customer-account">-</span>
-
-            </div>
-
-            <div class="profile-field">
-
-                <label>Dirección</label>
-
-                <span id="customer-address">-</span>
-
-            </div>
-
-            <div class="profile-field">
-
-                <label>Segmento</label>
-
-                <span id="customer-segment">-</span>
+                </small>
 
             </div>
 
         </div>
 
-    </aside>
+        <div class="chat-actions">
 
-    <!-- BIBLIOTECA -->
+            <button>
 
-    <aside class="knowledge-panel">
+                <i class="fa-solid fa-phone"></i>
 
-        <div class="panel-header">
+            </button>
 
-            <h3>Biblioteca</h3>
+            <button>
+
+                <i class="fa-solid fa-video"></i>
+
+            </button>
+
+            <button>
+
+                <i class="fa-solid fa-ellipsis"></i>
+
+            </button>
 
         </div>
+
+    </header>
+
+    <div id="chat-area">
+
+        <div class="welcome">
+
+            <i class="fa-regular fa-comments"></i>
+
+            <h2>
+
+                No hay conversaciones activas
+
+            </h2>
+
+            <p>
+
+                Las conversaciones aparecerán aquí.
+
+            </p>
+
+        </div>
+
+    </div>
+
+    <!-- ========================= -->
+    <!-- CAJA DE MENSAJE -->
+    <!-- ========================= -->
+
+    <footer class="chat-footer">
+
+        <button class="attach-btn">
+
+            <i class="fa-solid fa-paperclip"></i>
+
+        </button>
 
         <input
-            class="knowledge-search"
-            placeholder="Buscar respuesta...">
+            id="message-input"
+            type="text"
+            placeholder="Escribe un mensaje...">
 
-        <div id="knowledge-list">
+        <button
+            id="send-btn">
+
+            <i class="fa-solid fa-paper-plane"></i>
+
+        </button>
+
+    </footer>
+
+</section>
+
+<!-- ========================= -->
+<!-- PERFIL -->
+<!-- ========================= -->
+
+<aside class="profile-panel">
+
+    <div class="panel-header">
+
+        <h3>
+
+            Perfil
+
+        </h3>
+
+    </div>
+
+    <div class="profile-content">
+
+        <div class="profile-avatar">
+
+            <i class="fa-solid fa-user"></i>
 
         </div>
 
-    </aside>
+        <div class="profile-item">
+
+            <label>Nombre</label>
+
+            <span id="customer-name">
+
+                Sin interacción
+
+            </span>
+
+        </div>
+
+        <div class="profile-item">
+
+            <label>Cuenta</label>
+
+            <span id="customer-account">
+
+                —
+
+            </span>
+
+        </div>
+
+        <div class="profile-item">
+
+            <label>Dirección</label>
+
+            <span id="customer-address">
+
+                —
+
+            </span>
+
+        </div>
+
+        <div class="profile-item">
+
+            <label>Segmento</label>
+
+            <span id="customer-segment">
+
+                —
+
+            </span>
+
+        </div>
+
+    </div>
+
+</aside>
+
+<!-- ========================= -->
+<!-- BIBLIOTECA -->
+<!-- ========================= -->
+
+<aside class="knowledge-panel">
+
+    <div class="panel-header">
+
+        <h3>
+
+            Biblioteca
+
+        </h3>
+
+    </div>
+
+    <div class="knowledge-search">
+
+        <input
+            type="text"
+            placeholder="Buscar respuesta...">
+
+    </div>
+
+    <div id="knowledge-list">
+
+    </div>
+
+</aside>
 
 </main>
 
-</section>
+</div>
+
+<!-- ========================= -->
+<!-- FORMADOR -->
+<!-- ========================= -->
+
+<div
+id="trainer-view"
+style="display:none;">
+
+</div>
 
 <script src="firebase.js"></script>
 
